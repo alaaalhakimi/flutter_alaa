@@ -1,17 +1,16 @@
-class FormValidator {
+class AlaaFormValidator {
   static String? validateUsername(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Username is required';
-    } else if (RegExp(r'[0-9]').hasMatch(value)) {
-      return 'Username cannot contain numbers';
+      return 'Please enter username';
     }
     return null;
   }
 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Email is required';
-    } else if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
+      return 'Please enter email';
+    }
+    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
       return 'Please enter a valid email';
     }
     return null;
@@ -19,19 +18,21 @@ class FormValidator {
 
   static String? validatePhone(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Phone number is required';
-    } else if (!RegExp(r'^\d{9}$').hasMatch(value)) {
-      return 'Phone number must be exactly 9 digits';
+      return 'Please enter phone number';
+    }
+    if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+      return 'Please enter a valid 10-digit phone number';
     }
     return null;
   }
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Password is required';
-    } else if (!RegExp(r'^\d{6,}$').hasMatch(value)) {
-      return 'Password must contain only numbers and be at least 6 digits';
+      return 'Please enter password';
+    }
+    if (value.length < 6) {
+      return 'Password must be at least 6 characters';
     }
     return null;
   }
-} 
+}

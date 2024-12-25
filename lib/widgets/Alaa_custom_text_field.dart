@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback? onTogglePassword;
   final bool passwordVisible;
   final TextDirection textDirection;
+  final TextInputAction? textInputAction;
+  final bool autofocus;
 
   const CustomTextField({
     Key? key,
@@ -22,6 +24,8 @@ class CustomTextField extends StatelessWidget {
     this.onTogglePassword,
     this.passwordVisible = false,
     this.textDirection = TextDirection.ltr,
+    this.textInputAction,
+    this.autofocus = false,
   }) : super(key: key);
 
   @override
@@ -54,6 +58,8 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       validator: validator,
       onSaved: onSaved,
+      textInputAction: textInputAction,
+      autofocus: autofocus,
     );
   }
-} 
+}

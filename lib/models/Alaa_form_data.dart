@@ -1,17 +1,12 @@
-class FormData {
+class AlaaFormData {
   String? username;
   String? email;
   String? phone;
   String? password;
 
-  FormData({
-    this.username,
-    this.email,
-    this.phone,
-    this.password,
-  });
+  AlaaFormData({this.username, this.email, this.phone, this.password});
 
-  Map<String, String?> toMap() {
+  Map<String, dynamic> toMap() {
     return {
       'username': username,
       'email': email,
@@ -19,4 +14,13 @@ class FormData {
       'password': password,
     };
   }
-} 
+
+  factory AlaaFormData.fromMap(Map<String, dynamic> map) {
+    return AlaaFormData(
+      username: map['username'],
+      email: map['email'],
+      phone: map['phone'],
+      password: map['password'],
+    );
+  }
+}
